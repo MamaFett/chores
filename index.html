@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Chore Cockpit Cloud</title>
+  <meta name="theme-color" content="#050706" />
+  <style>
+    :root{--bg:#050706;--panel:#0d1110;--panel2:#151b18;--line:#26302a;--text:#f4fff8;--muted:#9bad9f;--green:#76ff6a;--green2:#1cc84b;--purple:#c879ff;--pink:#ff6fbd;--white:#fff;--danger:#ff6b6b;--gold:#ffd166;--shadow:0 18px 60px rgba(0,0,0,.45);--radius:22px}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top,#132016 0,#050706 40%,#030403 100%);color:var(--text);min-height:100svh;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+    button,input,select,textarea{font:inherit} button{cursor:pointer;-webkit-tap-highlight-color:transparent} .app{width:min(920px,100%);margin:0 auto;padding:18px 14px 92px}.top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin:6px 2px 16px}.brand{display:flex;gap:12px;align-items:center}.logo{width:46px;height:46px;border-radius:16px;background:linear-gradient(135deg,#0b140d,#243327);border:1px solid #2f4434;display:grid;place-items:center;box-shadow:0 0 24px rgba(118,255,106,.12)}h1{font-size:24px;line-height:1;margin:0;letter-spacing:.02em}.sub{color:var(--muted);font-size:13px;margin-top:5px}.pill{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;color:var(--muted);padding:8px 10px;font-size:12px;white-space:nowrap}.card{background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin:12px 0}.setup{border-color:rgba(118,255,106,.45)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:#0a0f0c;border:1px solid var(--line);border-radius:18px;padding:12px}.stat b{display:block;font-size:20px;margin-bottom:4px}.stat span{font-size:12px;color:var(--muted)}.bar{height:12px;background:#202720;border-radius:999px;overflow:hidden;border:1px solid #303a31}.bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green2),var(--green));border-radius:999px;transition:.35s}.tabs{position:fixed;left:0;right:0;bottom:0;background:rgba(5,7,6,.86);backdrop-filter:blur(16px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);z-index:20;padding:8px 8px calc(8px + env(safe-area-inset-bottom))}.tab{background:transparent;color:var(--muted);border:0;border-radius:16px;padding:10px 4px;font-size:11px}.tab.active{color:#061007;background:var(--green);font-weight:800}.screen{display:none}.screen.active{display:block}.sectionTitle{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 10px}.sectionTitle h2{margin:0;font-size:14px;color:var(--green);letter-spacing:.12em;text-transform:uppercase}.task{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;background:#0b0f0c;border:1px solid var(--line);border-radius:20px;padding:12px;margin:9px 0;transition:.25s}.task.done{transform:translateX(20px);opacity:0}.check{width:34px;height:34px;border-radius:13px;border:1px solid #334336;background:#111a13;color:var(--green);display:grid;place-items:center;font-weight:900}.task h3{margin:0 0 5px;font-size:16px}.meta{display:flex;flex-wrap:wrap;gap:6px;color:var(--muted);font-size:12px}.badge{border-radius:999px;padding:4px 8px;border:1px solid var(--line);background:#111}.cassi{color:var(--purple);border-color:rgba(200,121,255,.5)}.travis{color:var(--green);border-color:rgba(118,255,106,.5)}.shared{color:#fff;border-color:rgba(255,255,255,.45)}.miles{color:var(--gold);font-weight:800;font-size:13px;white-space:nowrap}.empty{padding:22px;text-align:center;color:var(--muted);border:1px dashed #334136;border-radius:20px;background:rgba(255,255,255,.025)}.btn{border:0;border-radius:16px;background:var(--green);color:#061007;font-weight:900;padding:12px 14px}.btn.secondary{background:#172019;color:var(--text);border:1px solid var(--line)}.btn.danger{background:#2a1111;color:#ffdede;border:1px solid rgba(255,107,107,.35)}.row{display:flex;gap:10px;flex-wrap:wrap}.form{display:grid;gap:11px}.field label{display:block;color:var(--muted);font-size:12px;margin:0 0 6px}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:15px;background:#070a08;color:var(--text);padding:12px}.field textarea{min-height:72px;resize:vertical}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.hide{display:none!important}.small{font-size:12px;color:var(--muted);line-height:1.45}.leader{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);background:#0a0f0c;border-radius:18px;padding:14px;margin:10px 0}.leader strong{font-size:18px}.toast{position:fixed;left:14px;right:14px;bottom:86px;background:#121a14;border:1px solid rgba(118,255,106,.4);border-radius:18px;padding:12px;box-shadow:var(--shadow);transform:translateY(130%);transition:.3s;z-index:30}.toast.show{transform:translateY(0)}.warn{color:#ffd166}.error{color:#ff8d8d}.linkish{color:var(--green);text-decoration:underline;background:none;border:0;padding:0}@media(min-width:700px){.app{padding-inline:24px}.task{grid-template-columns:auto 1fr 90px}.two{grid-template-columns:repeat(2,1fr)} }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="top"><div class="brand"><div class="logo">✈️</div><div><h1>Chore Cockpit</h1><div class="sub" id="hello">Cloud weekend build</div></div></div><div class="pill" id="syncState">Not connected</div></header>
+
+    <section id="setupCard" class="card setup">
+      <h2 style="margin:0 0 8px">Cloud setup needed</h2>
+      <p class="small">Paste your Firebase config into this file first. After that, enter one Household Code on both phones and choose who you are.</p>
+      <div class="form">
+        <div class="field"><label>Household Code</label><input id="householdInput" placeholder="Example: OVERTON" autocomplete="off"></div>
+        <div class="field"><label>I am</label><select id="crewInput"><option value="Cassi">Cassi</option><option value="Travis">Travis</option></select></div>
+        <button class="btn" id="connectBtn">Connect Cockpit</button>
+      </div>
+      <p class="small warn" id="setupWarning"></p>
+    </section>
+
+    <main id="mainApp" class="hide">
+      <section class="card">
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:center"><div><div class="sub">Today's Flight Plan</div><h2 style="margin:4px 0 0" id="todayTitle">Ready for takeoff</h2></div><button class="btn secondary" id="changeCrewBtn">Switch</button></div>
+        <div class="grid" style="margin-top:14px"><div class="stat"><b id="healthStat">0%</b><span>House Health</span></div><div class="stat"><b id="timeStat">0m</b><span>Flight Time</span></div><div class="stat"><b id="milesStat">0</b><span>Miles Available</span></div></div>
+        <div style="margin-top:14px"><div class="bar"><i id="healthBar"></i></div></div>
+      </section>
+
+      <section class="screen active" id="screen-plan">
+        <div class="sectionTitle"><h2>Quick Wins</h2><span class="small">5 min or less</span></div><div id="quickList"></div>
+        <div class="sectionTitle"><h2>Today's Missions</h2><span class="small" id="missionCount"></span></div><div id="missionList"></div>
+        <div class="sectionTitle"><h2>Completed Today</h2></div><div id="doneList"></div>
+      </section>
+
+      <section class="screen" id="screen-control">
+        <div class="card"><h2 id="formTitle" style="margin-top:0">Add Mission</h2><div class="form">
+          <div class="field"><label>Chore Name</label><input id="choreTitle" placeholder="Take out trash"></div>
+          <div class="two"><div class="field"><label>Assigned To</label><select id="assigned"><option>Cassi</option><option>Travis</option><option>Shared</option></select></div><div class="field"><label>Estimated Minutes</label><input id="minutes" type="number" min="1" value="5"></div></div>
+          <div class="two"><div class="field"><label>Miles</label><input id="miles" type="number" min="1" value="15"></div><div class="field"><label>Priority</label><select id="priority"><option>Normal</option><option>High</option><option>Low</option></select></div></div>
+          <div class="field"><label>Schedule</label><select id="scheduleType"><option value="daily">Daily</option><option value="weekly">Weekly, flexible</option><option value="monthly">Monthly, flexible</option><option value="everyX">Every X days</option><option value="weekday">Specific weekday</option><option value="monthday">Specific day of month</option></select></div>
+          <div class="field hide" id="xDaysWrap"><label>Every how many days?</label><input id="xDays" type="number" min="1" value="3"></div>
+          <div class="field hide" id="weekdayWrap"><label>Which weekday?</label><select id="weekday"><option value="0">Sunday</option><option value="1">Monday</option><option value="2">Tuesday</option><option value="3">Wednesday</option><option value="4">Thursday</option><option value="5">Friday</option><option value="6">Saturday</option></select></div>
+          <div class="field hide" id="monthdayWrap"><label>Which day of the month?</label><input id="monthday" type="number" min="1" max="31" value="1"></div>
+          <div class="field"><label>Notes</label><textarea id="notes" placeholder="Optional"></textarea></div>
+          <div class="row"><button class="btn" id="saveChoreBtn">Add Chore</button><button class="btn secondary hide" id="cancelEditBtn">Cancel Edit</button></div>
+        </div></div>
+        <div class="sectionTitle"><h2>All Missions</h2></div><div id="allChores"></div>
+      </section>
+
+      <section class="screen" id="screen-leader"><div class="card"><h2 style="margin-top:0">Captain of the Cockpit</h2><div id="leaderboard"></div><button class="btn secondary" id="resetWeekBtn">Reset Weekly Miles</button><p class="small">Use this after the weekly reward is claimed.</p></div></section>
+      <section class="screen" id="screen-rewards"><div class="card"><h2 style="margin-top:0">Rewards</h2><div class="form"><div class="field"><label>Add Reward</label><input id="rewardInput" placeholder="Winner picks dinner"></div><button class="btn" id="addRewardBtn">Add Reward</button></div></div><div id="rewardList"></div></section>
+    </main>
+  </div>
+  <nav class="tabs hide" id="tabs"><button class="tab active" data-screen="plan">Flight Plan</button><button class="tab" data-screen="control">Mission Control</button><button class="tab" data-screen="leader">Leaderboard</button><button class="tab" data-screen="rewards">Rewards</button></nav>
+  <div class="toast" id="toast"></div>
+
+<script type="module">
+// 1) Paste your Firebase web app config here.
+// Firebase Console > Project settings > Your apps > Web app > Config
+const firebaseConfig = {
+  apiKey: "PASTE_API_KEY_HERE",
+  authDomain: "PASTE_PROJECT_ID.firebaseapp.com",
+  projectId: "PASTE_PROJECT_ID",
+  storageBucket: "PASTE_PROJECT_ID.firebasestorage.app",
+  messagingSenderId: "PASTE_SENDER_ID",
+  appId: "PASTE_APP_ID"
+};
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+import { getFirestore, collection, doc, addDoc, setDoc, updateDoc, deleteDoc, onSnapshot, serverTimestamp, getDocs, writeBatch } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+
+const $ = id => document.getElementById(id);
+const els = {
+ setupCard:$('setupCard'),mainApp:$('mainApp'),tabs:$('tabs'),syncState:$('syncState'),hello:$('hello'),setupWarning:$('setupWarning'),householdInput:$('householdInput'),crewInput:$('crewInput'),connectBtn:$('connectBtn'),changeCrewBtn:$('changeCrewBtn'),
+ quickList:$('quickList'),missionList:$('missionList'),doneList:$('doneList'),missionCount:$('missionCount'),healthStat:$('healthStat'),timeStat:$('timeStat'),milesStat:$('milesStat'),healthBar:$('healthBar'),todayTitle:$('todayTitle'),
+ formTitle:$('formTitle'),choreTitle:$('choreTitle'),assigned:$('assigned'),minutes:$('minutes'),miles:$('miles'),priority:$('priority'),scheduleType:$('scheduleType'),xDaysWrap:$('xDaysWrap'),xDays:$('xDays'),weekdayWrap:$('weekdayWrap'),weekday:$('weekday'),monthdayWrap:$('monthdayWrap'),monthday:$('monthday'),notes:$('notes'),saveChoreBtn:$('saveChoreBtn'),cancelEditBtn:$('cancelEditBtn'),allChores:$('allChores'),leaderboard:$('leaderboard'),resetWeekBtn:$('resetWeekBtn'),rewardInput:$('rewardInput'),addRewardBtn:$('addRewardBtn'),rewardList:$('rewardList'),toast:$('toast')
+};
+let app,auth,db,user,household='',crew='Cassi',chores=[],rewards=[],editingId=null,unsubs=[];
+const configured = !firebaseConfig.apiKey.includes('PASTE_') && !firebaseConfig.projectId.includes('PASTE_');
+if(!configured){ els.setupWarning.innerHTML='Firebase config is not pasted in yet. The app will not connect until that is done.'; els.connectBtn.disabled=true; }
+try{ if(configured){ app=initializeApp(firebaseConfig); auth=getAuth(app); db=getFirestore(app); signInAnonymously(auth).catch(e=>show('Auth error: '+e.message,true)); onAuthStateChanged(auth,u=>{user=u; els.syncState.textContent=u?'Ready':'Signing in';}); }}catch(e){els.setupWarning.textContent=e.message;}
+
+function todayKey(d=new Date()){return d.toISOString().slice(0,10)}
+function weekKey(d=new Date()){const x=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())); const day=x.getUTCDay()||7; x.setUTCDate(x.getUTCDate()+4-day); const y=new Date(Date.UTC(x.getUTCFullYear(),0,1)); const w=Math.ceil((((x-y)/86400000)+1)/7); return `${x.getUTCFullYear()}-W${String(w).padStart(2,'0')}`}
+function show(msg,bad=false){els.toast.textContent=msg; els.toast.style.borderColor=bad?'rgba(255,107,107,.55)':'rgba(118,255,106,.4)'; els.toast.classList.add('show'); setTimeout(()=>els.toast.classList.remove('show'),2600)}
+function cleanCode(v){return String(v||'').trim().toUpperCase().replace(/[^A-Z0-9_-]/g,'')}
+function path(name){return collection(db,'households',household,name)}
+function docPath(name,id){return doc(db,'households',household,name,id)}
+function badge(person){const cls=person==='Cassi'?'cassi':person==='Travis'?'travis':'shared'; const icon=person==='Cassi'?'💜':person==='Travis'?'💚':'🤍'; return `<span class="badge ${cls}">${icon} ${person}</span>`}
+function milesForMinutes(m){m=Number(m)||5; if(m<=2)return 5; if(m<=5)return 15; if(m<=10)return 30; if(m<=20)return 60; return 100;}
+function due(chore){const now=new Date(); const last=chore.lastCompletedDate; if(last===todayKey() && ['daily','weekday','monthday'].includes(chore.scheduleType)) return false; if(chore.scheduleType==='daily')return last!==todayKey(); if(chore.scheduleType==='weekday')return now.getDay()===Number(chore.weekday) && last!==todayKey(); if(chore.scheduleType==='monthday')return now.getDate()===Number(chore.monthday) && last!==todayKey(); if(!last)return true; const days=Math.floor((new Date(todayKey())-new Date(last))/86400000); if(chore.scheduleType==='weekly')return days>=7; if(chore.scheduleType==='monthly')return days>=30; if(chore.scheduleType==='everyX')return days>=Number(chore.xDays||1); return true;}
+function dueLabel(c){if(c.scheduleType==='daily')return 'Daily'; if(c.scheduleType==='weekly')return 'Weekly'; if(c.scheduleType==='monthly')return 'Monthly'; if(c.scheduleType==='everyX')return `Every ${c.xDays||1} days`; if(c.scheduleType==='weekday')return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][Number(c.weekday)]||'Weekday'; if(c.scheduleType==='monthday')return `${c.monthday||1}${suffix(c.monthday||1)} of month`; return 'Recurring'}
+function suffix(n){n=Number(n); if([11,12,13].includes(n%100))return 'th'; return ['th','st','nd','rd'][n%10]||'th'}
+function currentDue(){return chores.filter(due).sort((a,b)=>(a.minutes||0)-(b.minutes||0))}
+function render(){ if(!household)return; els.hello.textContent=`${crew} · Household ${household}`; const dueNow=currentDue(); const quick=dueNow.filter(c=>Number(c.minutes)<=5); const missions=dueNow.filter(c=>Number(c.minutes)>5); const completed=chores.filter(c=>c.lastCompletedDate===todayKey()); const total=dueNow.length+completed.length; const health=total?Math.round((completed.length/total)*100):100; const mins=dueNow.reduce((s,c)=>s+Number(c.minutes||0),0); const miles=dueNow.reduce((s,c)=>s+Number(c.miles||0),0); els.healthStat.textContent=health+'%'; els.healthBar.style.width=health+'%'; els.timeStat.textContent=mins+'m'; els.milesStat.textContent=miles; els.todayTitle.textContent=dueNow.length?`${dueNow.length} mission${dueNow.length===1?'':'s'} awaiting crew`:'All clear. Cleared for landing.'; els.missionCount.textContent=`${missions.length} mission${missions.length===1?'':'s'}`;
+ els.quickList.innerHTML= quick.length? quick.map(taskCard).join('') : `<div class="empty">No quick wins right now. Tiny miracle.</div>`; els.missionList.innerHTML= missions.length? missions.map(taskCard).join('') : `<div class="empty">No main missions due.</div>`; els.doneList.innerHTML= completed.length? completed.map(c=>`<div class="task"><div class="check">✓</div><div><h3>${esc(c.title)}</h3><div class="meta">${badge(c.assigned)} <span>${c.miles} miles earned</span></div></div></div>`).join('') : `<div class="empty">Nothing checked off yet today.</div>`;
+ els.allChores.innerHTML= chores.length? chores.map(c=>`<div class="task"><div class="check">✎</div><div><h3>${esc(c.title)}</h3><div class="meta">${badge(c.assigned)} <span>${c.minutes} min</span><span>${c.miles} miles</span><span>${dueLabel(c)}</span></div>${c.notes?`<div class="small" style="margin-top:6px">${esc(c.notes)}</div>`:''}</div><div class="row"><button class="btn secondary" onclick="window.editChore('${c.id}')">Edit</button><button class="btn danger" onclick="window.deleteChore('${c.id}')">Delete</button></div></div>`).join('') : `<div class="empty">No chores yet. Add the first mission.</div>`; renderLeaders(); renderRewards(); }
+function taskCard(c){return `<div class="task" id="task-${c.id}"><button class="check" onclick="window.completeChore('${c.id}')">✓</button><div><h3>${esc(c.title)}</h3><div class="meta">${badge(c.assigned)} <span>${c.minutes} min</span><span>${dueLabel(c)}</span></div></div><div class="miles">${c.miles} mi</div></div>`}
+function renderLeaders(){const wk=weekKey(); const scores={Cassi:0,Travis:0,Shared:0}; chores.forEach(c=>(c.completions||[]).filter(x=>x.week===wk).forEach(x=>scores[x.by]=(scores[x.by]||0)+Number(x.miles||0))); const sorted=Object.entries(scores).sort((a,b)=>b[1]-a[1]); els.leaderboard.innerHTML=sorted.map(([name,score],i)=>`<div class="leader"><div>${i===0?'🏆 ':''}<strong>${name}</strong><div class="small">${i===0?'Current captain':'Crew member'}</div></div><div class="miles">${score} miles</div></div>`).join('')}
+function renderRewards(){els.rewardList.innerHTML = rewards.length? rewards.map(r=>`<div class="card"><div class="leader"><strong>${esc(r.title)}</strong><button class="btn danger" onclick="window.deleteReward('${r.id}')">Delete</button></div></div>`).join('') : `<div class="card empty">Add rewards like “winner picks dinner” or “foot rub.”</div>`}
+function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+
+els.connectBtn.onclick=async()=>{ household=cleanCode(els.householdInput.value); crew=els.crewInput.value; if(!household)return show('Enter a Household Code first.',true); localStorage.setItem('cc_household',household); localStorage.setItem('cc_crew',crew); await connect(); };
+els.changeCrewBtn.onclick=()=>{unsubs.forEach(u=>u()); unsubs=[]; household=''; els.mainApp.classList.add('hide'); els.tabs.classList.add('hide'); els.setupCard.classList.remove('hide');};
+async function connect(){ if(!user){show('Still signing in. Try again in a second.',true);return;} els.setupCard.classList.add('hide'); els.mainApp.classList.remove('hide'); els.tabs.classList.remove('hide'); els.syncState.textContent='Connecting'; await setDoc(doc(db,'households',household),{updatedAt:serverTimestamp()},{merge:true}); unsubs.forEach(u=>u()); unsubs=[onSnapshot(path('chores'),snap=>{chores=snap.docs.map(d=>({id:d.id,...d.data()})); els.syncState.textContent='Synced'; render();},e=>show('Chores sync error: '+e.message,true)), onSnapshot(path('rewards'),snap=>{rewards=snap.docs.map(d=>({id:d.id,...d.data()})); render();},e=>show('Rewards sync error: '+e.message,true))]; }
+
+els.scheduleType.onchange=()=>{const v=els.scheduleType.value; els.xDaysWrap.classList.toggle('hide',v!=='everyX'); els.weekdayWrap.classList.toggle('hide',v!=='weekday'); els.monthdayWrap.classList.toggle('hide',v!=='monthday')};
+els.minutes.oninput=()=>{if(!editingId) els.miles.value=milesForMinutes(els.minutes.value)};
+els.saveChoreBtn.onclick=async()=>{const title=els.choreTitle.value.trim(); if(!title)return show('Give the chore a name first.',true); const data={title,assigned:els.assigned.value,minutes:Number(els.minutes.value)||5,miles:Number(els.miles.value)||milesForMinutes(els.minutes.value),priority:els.priority.value,scheduleType:els.scheduleType.value,xDays:Number(els.xDays.value)||1,weekday:Number(els.weekday.value)||0,monthday:Number(els.monthday.value)||1,notes:els.notes.value.trim(),updatedAt:serverTimestamp()}; if(editingId){await updateDoc(docPath('chores',editingId),data); show('Chore updated.');} else {await addDoc(path('chores'),{...data,lastCompletedDate:null,completions:[],createdAt:serverTimestamp()}); show('Chore added.');} resetForm();};
+els.cancelEditBtn.onclick=resetForm;
+window.editChore=(id)=>{const c=chores.find(x=>x.id===id); if(!c)return; editingId=id; els.formTitle.textContent='Update Mission'; els.saveChoreBtn.textContent='Update Chore'; els.cancelEditBtn.classList.remove('hide'); els.choreTitle.value=c.title||''; els.assigned.value=c.assigned||'Shared'; els.minutes.value=c.minutes||5; els.miles.value=c.miles||milesForMinutes(c.minutes); els.priority.value=c.priority||'Normal'; els.scheduleType.value=c.scheduleType||'daily'; els.xDays.value=c.xDays||3; els.weekday.value=String(c.weekday??0); els.monthday.value=c.monthday||1; els.notes.value=c.notes||''; els.scheduleType.onchange(); document.querySelector('[data-screen="control"]').click(); window.scrollTo({top:0,behavior:'smooth'});};
+window.deleteChore=async(id)=>{if(confirm('Delete this chore?')){await deleteDoc(docPath('chores',id)); show('Chore deleted.')}};
+window.completeChore=async(id)=>{const c=chores.find(x=>x.id===id); if(!c)return; const el=$('task-'+id); if(el)el.classList.add('done'); const entry={date:todayKey(),week:weekKey(),by:crew,miles:Number(c.miles||0),title:c.title}; await updateDoc(docPath('chores',id),{lastCompletedDate:todayKey(),completions:[...(c.completions||[]),entry],updatedAt:serverTimestamp()}); show(`+${c.miles} miles for ${crew}`);};
+function resetForm(){editingId=null; els.formTitle.textContent='Add Mission'; els.saveChoreBtn.textContent='Add Chore'; els.cancelEditBtn.classList.add('hide'); ['choreTitle','notes'].forEach(id=>els[id].value=''); els.assigned.value='Shared'; els.minutes.value=5; els.miles.value=15; els.priority.value='Normal'; els.scheduleType.value='daily'; els.xDays.value=3; els.weekday.value='0'; els.monthday.value=1; els.scheduleType.onchange();}
+els.addRewardBtn.onclick=async()=>{const title=els.rewardInput.value.trim(); if(!title)return; await addDoc(path('rewards'),{title,createdAt:serverTimestamp()}); els.rewardInput.value=''; show('Reward added.');};
+window.deleteReward=async(id)=>{await deleteDoc(docPath('rewards',id)); show('Reward deleted.')};
+els.resetWeekBtn.onclick=async()=>{if(!confirm('Reset weekly miles by clearing this week\'s completion history? Chores will stay.'))return; const wk=weekKey(); const batch=writeBatch(db); chores.forEach(c=>{const kept=(c.completions||[]).filter(x=>x.week!==wk); batch.update(docPath('chores',c.id),{completions:kept});}); await batch.commit(); show('Weekly miles reset.');};
+document.querySelectorAll('.tab').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); $('screen-'+btn.dataset.screen).classList.add('active');});
+
+const savedH=localStorage.getItem('cc_household'), savedC=localStorage.getItem('cc_crew'); if(savedH&&savedC&&configured){els.householdInput.value=savedH; els.crewInput.value=savedC; crew=savedC; const t=setInterval(()=>{if(user){clearInterval(t); household=savedH; connect();}},250)}
+</script>
+</body>
+</html>
